@@ -1,0 +1,9 @@
+docker network create round_robin
+docker container run -d --rm --network round_robin --name elasticsearch1 --network-alias elasticsearch elasticsearch:2
+docker container run -d --rm --network round_robin --name elasticsearch2 --network-alias elasticsearch elasticsearch:2
+
+docker container run --rm -it --network round_robin --name centos centos
+curl -s --net search:9200
+
+docker container run --rm -it --network round_robin --name alpine alpine
+nslookup elasticsearch

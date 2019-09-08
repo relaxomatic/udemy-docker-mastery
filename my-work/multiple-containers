@@ -1,0 +1,5 @@
+docker container run --publish 80:80 --detach --name nginx nginx
+docker container run --publish 8080:80 --detach --name apache httpd
+docker container run --publish 3306:3306 --detach --name mysql --env "MYSQL_RANDOM_ROOT_PASSWORD=yes" mysql
+docker container logs -f mysql | grep "GENERATED ROOT PASSWORD"
+mysql -h 127.0.0.1 -P 3306 -u root -p

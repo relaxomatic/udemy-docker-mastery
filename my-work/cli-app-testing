@@ -1,0 +1,5 @@
+docker container run --rm -it --name ubuntu ubuntu:14.04
+apt-get update && apt-get install -y curl && curl --version && exit
+
+docker container run --rm -it --name centos centos:7
+yum update curl && curl --version && exit

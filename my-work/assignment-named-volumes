@@ -1,0 +1,7 @@
+docker stop $(docker ps -aq)
+docker container prune -f && docker image prune -a -f  && docker volume prune -f
+docker container run -d --rm --name postegres-9.6.1 -v psql-data:/var/lib/postgresql/data  postgres:9.6.1
+docker logs postegres-9.6.1
+docker container stop postegres-9.6.1
+docker container run -d --rm --name postegres-9.6.2 -v psql-data:/var/lib/postgresql/data  postgres:9.6.2
+docker logs postegres-9.6.2
